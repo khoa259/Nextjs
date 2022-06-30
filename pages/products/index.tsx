@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next'
+import Link from 'next/link';
 
 type ProductsProps = {
   products: any[]
@@ -9,7 +10,7 @@ const Products = ({ products }: ProductsProps) => {
     return (
         <div>
             {products.map((item) => (
-                <div key={item.id}>{item.name}</div>
+                <div key={item.id}><Link href={`/products/${item.id}`}>{item.name}</Link></div>
             ))}
         </div>
     );
