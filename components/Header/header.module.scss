@@ -1,0 +1,21 @@
+.demo{
+    @apply bg-black
+}
+.menu{
+    background: rgb(187, 187, 10);
+    width: 100%;
+    ul li{
+        display: inline-block;
+        padding: 20px 20px;
+        
+        a{
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        a:hover{
+            color: black;
+            transition: ease-in-out .3s;
+        }
+    }
+}

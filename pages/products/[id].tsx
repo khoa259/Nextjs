@@ -14,7 +14,7 @@ const ProductDetail = ({product}: ProductProps) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await (await fetch(`http://localhost:3001/products`)).json();
-  const paths = data.map(items => {
+  const paths = data.map(items  => {
     return { params: { id: items.id} }
   })
   return {

@@ -1,35 +1,27 @@
-import { GetStaticProps, GetStaticPropsContext } from 'next'
-import Link from 'next/link';
+import { GetStaticProps, GetStaticPropsContext } from "next";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import useSWR from 'swr'
 
 type ProductsProps = {
-  products: any[]
-}
+    products: any[];
+};
+const url = 'http://localhost:3001/products';
 
-const Products = ({ products }: ProductsProps) => {
-  if (!products) return null;
+const fetcher = async (url: string) => await (await fetch(url)).json()
+
+// client
+const ProductPage = () => {
+    const { data, error } = useSWR(url, fetcher, {revalidateOnMount: false, revalidateOnFocus: true})
+    if (error) return <div>failed to load</div>
+    if (!data) return <div className="text-red-500 text-center">Loading...</div>
     return (
         <div>
-            {products.map((item) => (
+            {data.map((item:any) => (
                 <div key={item.id}><Link href={`/products/${item.id}`}>{item.name}</Link></div>
             ))}
         </div>
     );
-}
+};
 
-export const getStaticProps: GetStaticProps<ProductsProps> = async (
-  context: GetStaticPropsContext) => {
-  console.log("Get Static props - server ");
-  const data = await(await fetch(`http://localhost:3001/products`) ).json()
-  if(!data){
-    return{
-      notFound:true
-    }
-  }
-  return {
-    props: {
-      products:data
-    }
-  }
-}
-
-export default Products 
+export default ProductPage;
