@@ -14,7 +14,7 @@ const ProductDetail = ({product}: ProductProps) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await (await fetch(`http://localhost:3001/products`)).json();
-  const paths = data.map(items  => {
+  const paths = data.map((items:any)  => {
     return { params: { id: items.id} }
   })
   return {
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<ProductProps> = async (
 
   // call api
 
-  const data = await ( await fetch(`http://localhost:3001/products/${context.params.id}`)).json()
+  const data = await ( await fetch(`http://localhost:3001/products/${context.params?.id}`)).json()
   if(!data){
     return {
       notFound: true

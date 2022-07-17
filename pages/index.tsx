@@ -1,13 +1,9 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import Footer from '../components/Footer'
-import Layout from '../components/Layout'
-// import { useAuth } from '../hooks/auth'
+import { useAuth } from '../hooks/auth'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
-  // const { register } = useAuth();
+  const { register } = useAuth();
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +14,7 @@ const Home = () => {
       <main>
        Main
       </main>
-      {/* <button onClick={() => register({email: "admin@gmail.com", password: "123456"})}>Register</button> */}
+      <button onClick={() => register({email: "admin@gmail.com", password: "123456"})}>Register</button>
     </div>
   )
 }

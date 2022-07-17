@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 import style from './header.module.scss'
-import {products} from '../../api/router'
 
 type Props = {}
 
