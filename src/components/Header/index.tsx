@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { MenuList } from './data-menu'
 import style from './header.module.scss'
 
 type Props = {}
@@ -7,12 +8,15 @@ type Props = {}
 const Header = (props: Props) => {
   return (
     <div className={style.menu}>
-        <ul>
-            <li><Link href="/"><a className={style.menu_item}>Home</a></Link></li>
-            <li><Link href="/products"><a className={style.menu_item}>Product</a></Link></li>
-            <li><Link href="/about"><a className={style.menu_item}>About</a></Link></li>
-            <li><Link href="/signin"><a className={style.menu_item}>Log-in</a></Link></li>
-        </ul>
+      <ul>
+        {MenuList.map((menu, index) => (
+          <li key={index}>
+            <Link href={menu.path}>
+              <a className={style.menu_item}>{menu.label}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

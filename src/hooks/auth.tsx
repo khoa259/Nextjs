@@ -17,6 +17,7 @@ export const useAuth = () => {
         const account = user;
         mutate("/users", async() => {
             const { data: user } = await signup(account);
+            
             return [...data, user]
         })
     }
@@ -30,3 +31,4 @@ export const useAuth = () => {
         register
     }
 }
+export default useAuth

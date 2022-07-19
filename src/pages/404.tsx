@@ -1,10 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
 
 const NotFound = (props: Props) => {
   return (
-    <div>NotFound</div>
+    <div>
+      NotFound
+    </div>
   )
 }
 

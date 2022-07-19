@@ -1,13 +1,31 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "products A"
+      "name": "Product 12",
+      "id": 13
     },
     {
-      "id": "2",
-      "name": "products B"
+      "name": "Product 12",
+      "id": 14
+    },
+    {
+      "name": "Product 12",
+      "id": 15
+    },
+    {
+      "name": "Product 12",
+      "id": 16
+    },
+    {
+      "name": "Product 12",
+      "id": 17
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "id": 1
+    }
+  ]
 }
